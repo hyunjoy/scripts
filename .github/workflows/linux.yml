@@ -3,7 +3,7 @@ name: CSI2115 Linux Code Sanity Check
 on:
   push:
     paths:
-      - 'linux/**'
+      - 'linux'
 
 env:
   BUILD_TYPE: Debug
