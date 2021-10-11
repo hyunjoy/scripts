@@ -1,4 +1,4 @@
-name: CSI2115 Linux Code Sanity Check
+name: CSI2115 Linux Kernel Code Sanity Check
 
 on:
   push:
