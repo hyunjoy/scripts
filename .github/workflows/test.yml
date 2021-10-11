@@ -3,7 +3,7 @@ name: CSI2115 Linux kernel Test
 on:
   push:
     paths:
-      - 'test'
+      - 'test/**'
 
 env:
   BUILD_TYPE: Debug
