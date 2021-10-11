@@ -3,7 +3,7 @@ name: CSI2115 Linux Code Sanity Check
 on:
   push:
     paths:
-      - 'linux/*'
+      - 'linux/**'
 
 env:
   BUILD_TYPE: Debug
@@ -21,7 +21,7 @@ jobs:
         ./install-deps.sh
     
     - name: Download file
-      run: wget https://github.com/hyunjoy/linux/archive/$(git rev-parse @:./linux).zip -o linux.zip
+      run: wget https://github.com/hyunjoy/linux/archive/$(git rev-parse @:./linux).zip
 
     - name: Unzip file
       run: unzip $(git rev-parse @:./linux).zip
