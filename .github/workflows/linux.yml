@@ -1,0 +1,31 @@
+name: CSI2115 Linux Code Sanity Check
+
+on:
+  push:
+    paths:
+      - 'linux/*'
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      shell: bash
+      run: |
+        ./install-deps.sh
+    
+    - name: Download file
+      run: wget https://github.com/hyunjoy/linux/archive/$(git rev-parse @:./linux).zip -o linux.zip
+
+    - name: Unzip file
+      run: unzip $(git rev-parse @:./linux).zip
+    
+    - name: Build
+      run: ./build-linux.sh linux-$(git rev-parse @:./linux) tinyconfig
+    
